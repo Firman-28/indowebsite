@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let email = form.querySelector('input[name="email"]').value;
             let pesan = form.querySelector('textarea[name="pesan"]').value;
 
-            let nomor = "628123456789"; // ganti dengan nomor WhatsApp kamu
+            let nomor = "6285715169864"; // ganti dengan nomor WhatsApp kamu
 
             let url = "https://wa.me/" + nomor +
             "?text=Halo saya dari website anda%0A%0A" +

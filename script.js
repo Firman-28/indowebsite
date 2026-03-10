@@ -60,20 +60,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         if (valid) {
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
+            let nama = form.querySelector('input[name="nama"]').value;
+            let email = form.querySelector('input[name="email"]').value;
+            let pesan = form.querySelector('textarea[name="pesan"]').value;
 
-            const phone = "6285715169864"; // ganti dengan nomor WhatsApp kamu
+            let nomor = "628123456789"; // ganti dengan nomor WhatsApp kamu
 
-            const url = "https://wa.me/" + phone + "?text="
-            + "Nama: " + name + "%0a"
-            + "Email: " + email + "%0a"
-            + "Pesan: " + message;
+            let url = "https://wa.me/" + nomor +
+            "?text=Halo saya dari website anda%0A%0A" +
+            "Nama: " + nama + "%0A" +
+            "Email: " + email + "%0A" +
+            "Pesan: " + pesan;
 
             window.open(url, "_blank");
 
-            form.reset();
+        form.reset();
         }
     });
 

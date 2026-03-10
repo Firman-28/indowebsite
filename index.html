@@ -114,7 +114,7 @@
                 <span>Penduduk</span>
             </div>
             <div class="stat-card">
-                <span class="number">700/span>
+                <span class="number">700</span>
                 <span>Bahasa Daerah</span>
             </div>
             <div class="stat-card">
@@ -123,30 +123,35 @@
             </div>
         </div>
     </section>
-
-    <section id="contact" class="content-section">
-        <h2>Kontak</h2>
-        <form id="contactForm" class="contact-form" novalidate>
-            <div class="form-group">
-                <label for="name">Nama</label>
-                <input type="text" id="name" name="name" required placeholder="Masukkan nama Anda">
-                <small class="error-message"></small>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Masukkan email Anda">
-                <small class="error-message"></small>
-            </div>
-            <div class="form-group">
-                <label for="message">Pesan</label>
-                <textarea id="message" name="message" rows="4" required placeholder="Tulis pesan Anda"></textarea>
-                <small class="error-message"></small>
-            </div>
-            <button type="submit" class="btn">Kirim</button>
-        </form>
-    </section>
 </main>
+<section id="contact" class="content-section">
+    <h2>Kontak</h2>
+    <p class="subtitle">Kirim pesan kepada saya</p>
 
+    <form id="contactForm" class="contact-form">
+
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Pesan</label>
+            <textarea name="pesan" rows="5" required></textarea>
+            <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="btn">Kirim Pesan</button>
+
+    </form>
+</section>
 <!-- lightbox modal -->
 <div id="lightbox" class="lightbox">
     <div class="lightbox-content">

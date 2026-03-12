@@ -1,33 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
     const lightbox = document.getElementById("lightbox");
-    const closeBtn = document.querySelector(".lightbox-close");
+    const closeBtn = lightbox.querySelector(".lightbox-close");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxDesc = document.getElemetById("lightboxDesc");
 
 
-    const items = document.querySelectorAll(".pancasila-item");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxTitle = document.getElementById("lightbox-title");
-    const lightboxDesc = document.getElementById("lightbox-desc");
-
-    items.forEach(item => {
-
+    document.querySelectorAll(".pancasila-item").forEach(item => {
         item.addEventListener("click", function(){
-
-            const img = this.getAttribute("data-img");
-            const title = this.getAttribute("data-title");
-            const desc = this.getAttribute("data-desc");
-
-            lightboxImg.src = img;
-            lightboxTitle.textContent = title;
-            lightboxDesc.textContent = desc;
-
+            lightboxImg.src = this.getAttribute("data-img");
+            lightboxTitle.textContent = this.getAttribute("data-title");
+            lightboxDesc.textContent = this.getAttribute("data-desc");
             lightbox.classList.add("active");
-            document.body.style.overflow ='hidden';
-
+            document.body.style.overflow = 'hidden';
+        });
     });
 
+    const lbImg = lightbox.querySelector('.lightbox-img');
+    const lbCaption = lightbox.querySelector('.lightbox-caption');
+    document.querySelectorAll('.clickable-image').forEach(img => {
+        img.addEventListener('click', () => {
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lbCaption.textContent = img.dataset.title + ' - ' + img.dataset.description;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+     closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto'; // pastikan kembali normal
+    });
+
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
 
-});
     // intersection observer for fade-in
     const sections = document.querySelectorAll('.content-section');
     const observer = new IntersectionObserver(entries => {

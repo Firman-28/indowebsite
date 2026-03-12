@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById("lightbox");
+    const closeBtn = document.querySelector(".lightbox-close");
+
 
     const items = document.querySelectorAll(".pancasila-item");
-
-    const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxDesc = document.getElementById("lightbox-desc");
-    const closeBtn = document.querySelector(".lightbox-close");
 
     items.forEach(item => {
 

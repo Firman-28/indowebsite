@@ -423,9 +423,16 @@ footer {
 }
 
 .social-links a {
-    margin: 0 0.5rem;
+    font-size: 28px;
     color: #fff;
-    text-decoration: none;
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover{
+    color: #ff2a6d;
+    transform: translate(8px) scale(1.2);
 }
 
 @media (max-width: 768px) {

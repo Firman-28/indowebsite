@@ -118,5 +118,4 @@ closeBtn.addEventListener("click", function(){
     window.addEventListener('scroll', () => {
         let y = window.scrollY;
         hero.style.backgroundPosition = `center ${y * 0.5}px`;
-    });
-});
+    });;

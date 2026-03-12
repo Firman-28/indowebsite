@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-closeBtn.addEventListener("click", function(){
-    lightbox.classList.remove("active");
+    closeBtn.addEventListener("click", function(){
+     lightbox.classList.remove("active");
 });
 
 });

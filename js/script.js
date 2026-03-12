@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener("DOMContentLoaded", function(){
 
 const items = document.querySelectorAll(".pancasila-item");
 
@@ -44,10 +43,8 @@ closeBtn.addEventListener("click", function(){
     sections.forEach(s => observer.observe(s));
 
     // lightbox
-    const lightbox = document.getElementById('lightbox');
     const lbImg = lightbox.querySelector('.lightbox-img');
     const lbCaption = lightbox.querySelector('.lightbox-caption');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
 
     document.querySelectorAll('.clickable-image').forEach(img => {
         img.addEventListener('click', () => {

@@ -1,23 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // lightbox
     const lightbox = document.getElementById("lightbox");
-    const closeBtn = lightbox.querySelector(".lightbox-close");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxTitle = document.getElementById("lightboxTitle");
-    const lightboxDesc = document.getElemetById("lightboxDesc");
+    const closeBtn = document.querySelector(".lightbox-close");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxDesc = document.getElementById("lightbox-desc");
+    const lbImg = lightbox.querySelector('.lightbox-img');
+    const lbCaption = lightbox.querySelector('.lightbox-caption');
 
-
+    // buka dari item pancasila
     document.querySelectorAll(".pancasila-item").forEach(item => {
         item.addEventListener("click", function(){
-            lightboxImg.src = this.getAttribute("data-img");
-            lightboxTitle.textContent = this.getAttribute("data-title");
-            lightboxDesc.textContent = this.getAttribute("data-desc");
+            lightboxImg.src = this.dataset.img;
+            lightboxTitle.textContent = this.dataset.title;
+            lightboxDesc.textContent = this.dataset.desc;
             lightbox.classList.add("active");
             document.body.style.overflow = 'hidden';
         });
     });
 
-    const lbImg = lightbox.querySelector('.lightbox-img');
-    const lbCaption = lightbox.querySelector('.lightbox-caption');
+    // buka dari gambar lain
     document.querySelectorAll('.clickable-image').forEach(img => {
         img.addEventListener('click', () => {
             lbImg.src = img.src;
@@ -28,9 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-     closeBtn.addEventListener('click', () => {
+    // tutup lightbox
+    closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // pastikan kembali normal
+        document.body.style.overflow = 'auto';
     });
 
     lightbox.addEventListener('click', e => {
@@ -39,9 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
-});
 
-    // intersection observer for fade-in
+    // intersection observer untuk fade-in
     const sections = document.querySelectorAll('.content-section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -51,32 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
     sections.forEach(s => observer.observe(s));
-
-    // lightbox
-    const lbImg = lightbox.querySelector('.lightbox-img');
-    const lbCaption = lightbox.querySelector('.lightbox-caption');
-
-    document.querySelectorAll('.clickable-image').forEach(img => {
-        img.addEventListener('click', () => {
-            lbImg.src = img.src;
-            lbImg.alt = img.alt;
-            lbCaption.textContent = img.dataset.title + ' - ' + img.dataset.description;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-        closeBtn.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-
-        lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
 
     // contact form validation
     const form = document.getElementById('contactForm');
@@ -99,22 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         if (valid) {
-
             let nama = form.querySelector('input[name="nama"]').value;
             let email = form.querySelector('input[name="email"]').value;
             let pesan = form.querySelector('textarea[name="pesan"]').value;
 
             let nomor = "6281514397312"; // ganti dengan nomor WhatsApp kamu
-
             let url = "https://wa.me/" + nomor +
-            "?text=Halo saya dari website anda%0A%0A" +
-            "Nama: " + nama + "%0A" +
-            "Email: " + email + "%0A" +
-            "Pesan: " + pesan;
+                "?text=Halo saya dari website anda%0A%0A" +
+                "Nama: " + nama + "%0A" +
+                "Email: " + email + "%0A" +
+                "Pesan: " + pesan;
 
             window.open(url, "_blank");
-
-        form.reset();
+            form.reset();
         }
     });
 
@@ -123,9 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-    // parallax effect for hero
+    // parallax effect untuk hero
     const hero = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
         let y = window.scrollY;
         hero.style.backgroundPosition = `center ${y * 0.5}px`;
-    });;
+    });
+});

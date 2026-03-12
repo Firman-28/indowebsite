@@ -53,12 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    closeBtn.addEventListener('click', () => {
+        closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     });
 
-    lightbox.addEventListener('click', e => {
+        lightbox.addEventListener('click', e => {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';

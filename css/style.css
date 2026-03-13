@@ -613,3 +613,24 @@ opacity:1;
 .nav-links{
     transition: all 0.3s ease;
 }
+
+@media (max-width:768px){
+
+body{
+padding:0 15px;
+}
+
+.content-section{
+padding:50px 0;
+}
+
+p{
+line-height:1.7;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+}

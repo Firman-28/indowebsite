@@ -23,7 +23,23 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
     });
-    
+
+    // lightbox untuk gambar biasa
+    document.querySelectorAll(".clickable-image").forEach(img => {
+        img.addEventListener("click", function(){
+            const imgSrc = this.src;
+            const title = this.dataset.title || "";
+            const desc = this.dataset.description || "";
+
+            lightboxImg.src = imgSrc;
+            lightboxImg.alt = title;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = desc;
+
+            lightbox.classList.add("active");
+            document.body.style.overflow = 'hidden';
+        });
+    });
     // tutup lightbox
     closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');

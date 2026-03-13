@@ -134,9 +134,8 @@ font-family:'Poppins', sans-serif;
 
 .hero .overlay p {
     max-width: 600px;
-    text-align: center;
     margin:1rem auto 0;
-    color: #fff;
+    text-align:center;
 }
 
 main {

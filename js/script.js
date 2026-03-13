@@ -5,31 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxDesc = document.getElementById("lightbox-desc");
-    const lbImg = lightbox.querySelector('.lightbox-img');
-    const lbCaption = lightbox.querySelector('.lightbox-caption');
 
     // buka dari item pancasila
     document.querySelectorAll(".pancasila-item").forEach(item => {
         item.addEventListener("click", function(){
-            lightboxImg.src = this.dataset.img;
-            lightboxTitle.textContent = this.dataset.title;
-            lightboxDesc.textContent = this.dataset.desc;
+
+            const imgSrc = this.dataset.img  || this.src;
+            const title = this.dataset.title || "";
+            const desc = this.dataset.desc || this.dataset.description || "";
+
+            lightboxImg.src = imgSrc;
+            lightboxImg.alt = title;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = desc;
+
             lightbox.classList.add("active");
             document.body.style.overflow = 'hidden';
         });
     });
-
-    // buka dari gambar lain
-    document.querySelectorAll('.clickable-image').forEach(img => {
-        img.addEventListener('click', () => {
-            lbImg.src = img.src;
-            lbImg.alt = img.alt;
-            lbCaption.textContent = img.dataset.title + ' - ' + img.dataset.description;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
+    
     // tutup lightbox
     closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');

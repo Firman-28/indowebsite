@@ -96,8 +96,8 @@ margin-bottom:1.5rem;
 color:#444;
 }
 
-p{
-text-align:justify;
+.content-section p{
+text-align: justify;
 }
 
 body{

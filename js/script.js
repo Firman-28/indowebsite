@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxDesc = document.getElementById("lightbox-desc");
 
     // buka dari item pancasila
-    document.querySelectorAll(".pancasila-item").forEach(item => {
+    document.querySelectorAll(".pancasila-item, .clickable-image").forEach(item => {
         item.addEventListener("click", function(){
 
             const imgSrc = this.dataset.img  || this.src;
@@ -23,23 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
     });
-
-    // lightbox untuk gambar biasa
-    document.querySelectorAll(".clickable-image").forEach(img => {
-        img.addEventListener("click", function(){
-            const imgSrc = this.src;
-            const title = this.dataset.title || "";
-            const desc = this.dataset.description || "";
-
-            lightboxImg.src = imgSrc;
-            lightboxImg.alt = title;
-            lightboxTitle.textContent = title;
-            lightboxDesc.textContent = desc;
-
-            lightbox.classList.add("active");
-            document.body.style.overflow = 'hidden';
-        });
-    });
+    
     // tutup lightbox
     closeBtn.addEventListener('click', () => {
         lightbox.classList.remove('active');

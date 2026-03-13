@@ -78,7 +78,8 @@ nav {
 .hero {
     height: 100vh;
     background-image: url('../images/budaya.jpg');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
     background-attachment: scroll;
     display: flex;
